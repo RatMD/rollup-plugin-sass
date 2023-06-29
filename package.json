@@ -1,0 +1,70 @@
+{
+    "name": "@rat.md/rollup-plugin-sass",
+    "version": "0.4.0",
+    "status": "beta",
+    "description": "A SASS / SCSS rollup plugin, especially designed for the development of our rat packages.",
+    "keywords": [
+        "rollup-plugin",
+        "rollup",
+        "sass",
+        "scss",
+        "css",
+        "rat"
+    ],
+    "author": "SamBrishes <sam@pytes.net> (https://www.pytes.net)",
+    "contributors": [
+        "Lenivyy <lenivyy@pytes.net> (https://www.pytes.net)"
+    ],
+    "license": "MIT",
+    "copyright": "pytesNET <info@pytes.net>",
+    "homepage": "https://rat.md/rollup-plugin-sass",
+    "bugs": {
+        "url": "https://github.com/pytesNET/rat.rollup-plugin-sass/issues",
+        "email": "info@pytes.net"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/pytesNET/rat.rollup-plugin-sass.git"
+    },
+    "funding": [
+        {
+            "type": "buymeacoffee",
+            "url": "https://buymeacoff.ee/pytesNET"
+        },
+        {
+            "type": "paypal",
+            "url": "https://paypal.me/pytesNET"
+        }
+    ],
+    "scripts": {
+        "build": "rollup -c",
+        "watch": "rollup -c --watch",
+        "test": "node tests/test.mjs",
+        "prepare": "rollup -c"
+    },
+    "tyoe": "module",
+    "main": "dist/rollup-sass.js",
+    "module": "dist/rollup-sass.mjs",
+    "exports": {
+        "import": "./dist/rollup-sass.mjs",
+        "require": "./dist/rollup-sass.js"
+    },
+    "files": [
+        "dist/*.js",
+        "dist/*.mjs",
+        "src/types/*d.ts"
+    ],
+    "typings": "src/types/ratsass.d.ts",
+    "reveal": true,
+    "dependencies": {
+        "@rollup/pluginutils": "^5.0.2",
+        "sass": "^1.63.6"
+    },
+    "devDependencies": {
+        "@rollup/plugin-typescript": "^11.1.2",
+        "@types/node": "^18.16.0",
+        "rollup": "^3.25.3",
+        "tslib": "^2.6.0",
+        "typescript": "^5.1.6"
+    }
+}
