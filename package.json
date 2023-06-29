@@ -11,25 +11,22 @@
         "css",
         "rat"
     ],
-    "author": "SamBrishes <sam@pytes.net> (https://www.pytes.net)",
-    "contributors": [
-        "Lenivyy <lenivyy@pytes.net> (https://www.pytes.net)"
-    ],
+    "author": "SamBrishes <sam@rat.md> (https://www.rat.md)",
     "license": "MIT",
-    "copyright": "pytesNET <info@pytes.net>",
+    "copyright": "rat.md <info@rat.md>",
     "homepage": "https://rat.md/rollup-plugin-sass",
     "bugs": {
-        "url": "https://github.com/pytesNET/rat.rollup-plugin-sass/issues",
-        "email": "info@pytes.net"
+        "url": "https://github.com/RatMD/rollup-plugin-sass/issues",
+        "email": "info@rat.md"
     },
     "repository": {
         "type": "git",
-        "url": "git+ssh://git@github.com/pytesNET/rat.rollup-plugin-sass.git"
+        "url": "git+ssh://git@github.com:RatMD/rollup-plugin-sass.git"
     },
     "funding": [
         {
             "type": "buymeacoffee",
-            "url": "https://buymeacoff.ee/pytesNET"
+            "url": "https://buymeacoff.ee/ratMD"
         },
         {
             "type": "paypal",
@@ -39,10 +36,9 @@
     "scripts": {
         "build": "rollup -c",
         "watch": "rollup -c --watch",
-        "test": "node tests/test.mjs",
         "prepare": "rollup -c"
     },
-    "tyoe": "module",
+    "type": "module",
     "main": "dist/rollup-sass.js",
     "module": "dist/rollup-sass.mjs",
     "exports": {
