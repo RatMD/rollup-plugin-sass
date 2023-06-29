@@ -45,9 +45,13 @@ function build(config: RatSassPluginConfig = { }) {
         includes.push(path.dirname(id));
 
         // Attach Watchers
-        if ('watch' in config) {
-            let files = (Array.isArray(config.watch)? config.watch: [config.watch]) as string[];
-            files.forEach((file) => this.addWatchFile(file));
+        if (this.meta.watchMode) {
+            if ('watch' in config) {
+                let files = (Array.isArray(config.watch)? config.watch: [config.watch]) as string[];
+                files.forEach((file) => this.addWatchFile(file));
+            } else {
+                this.addWatchFile(path.dirname(id));
+            }
         }
 
         // Handle FileNameHandler

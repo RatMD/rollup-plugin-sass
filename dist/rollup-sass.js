@@ -199,9 +199,14 @@ function build(config = {}) {
             return;
         }
         includes.push(path.dirname(id));
-        if ('watch' in config) {
-            let files = (Array.isArray(config.watch) ? config.watch : [config.watch]);
-            files.forEach((file) => this.addWatchFile(file));
+        if (this.meta.watchMode) {
+            if ('watch' in config) {
+                let files = (Array.isArray(config.watch) ? config.watch : [config.watch]);
+                files.forEach((file) => this.addWatchFile(file));
+            }
+            else {
+                this.addWatchFile(path.dirname(id));
+            }
         }
         let emitAsset;
         if (typeof config.fileNames !== 'undefined') {
