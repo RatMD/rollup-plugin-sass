@@ -9,7 +9,7 @@ module.exports = (config) => {
         console.log("    _ __ __ _| |_    ");
         console.log("   | '__/ _` | __|   ");
         console.log("   | | | (_| | |_    ");
-        console.log("   |_|  \\__,_|\\__|  \x1b[43m\x1b[30m rat.md ");
+        console.log("   |_|  \\__,_|\\__|  \x1b[43m\x1b[30m rat.md \x1b[0m");
         console.log("\x1b[0m");
     }
     delete config.skipIntro;
