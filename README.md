@@ -369,9 +369,8 @@ information.
 
 Copyright & License
 -------------------
+Written by SamBrishes \<sam@rat.md\> - [rat.md](https://www.rat.md).
 
-Written by SamBrishes (sam@rat.md).
-
-> Published under the MIT license, 
-> Copyright &copy; 2021 - 2023 rat.md <info@rat.md>.
-> Copyright &copy; 2020 - 2021 pytesNET <info@pytes.net>.
+> Published under the MIT license<br />
+> Copyright &copy; 2021 - 2023 rat.md \<info@rat.md\>.<br />
+> Copyright &copy; 2020 - 2021 pytesNET \<info@pytes.net\>.
