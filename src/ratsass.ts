@@ -1,5 +1,5 @@
 
-import { basename, dirname } from 'path';
+import path from 'path';
 import { EmittedAsset, OutputBundle, OutputOptions, OutputPlugin, SourceDescription } from 'rollup';
 import { createFilter } from '@rollup/pluginutils';
 
@@ -27,7 +27,8 @@ function build(config: RatSassPluginConfig = { }) {
     };
     
     // Get Configuration Function
-    const _getConfig = function () {
+    const _getConfig =
+     function () {
         return config;
     };
     
@@ -41,7 +42,7 @@ function build(config: RatSassPluginConfig = { }) {
         if (!filter(id)) {
             return;
         }
-        includes.push(dirname(id));
+        includes.push(path.dirname(id));
 
         // Attach Watchers
         if ('watch' in config) {
@@ -50,37 +51,39 @@ function build(config: RatSassPluginConfig = { }) {
         }
 
         // Handle FileNameHandler
+        let emitAsset: EmittedAsset; 
         if (typeof config.fileNames !== 'undefined') {
-            if (typeof config.fileNames === 'function') {
-                config.fileNames = config.fileNames(basename(id), id);
-            }
-            let emitname = basename(id).split('.');
-            emitname.pop();
+            let fileName = typeof config.fileNames === 'function' ?
+                config.fileNames(path.basename(id), id) :
+                config.fileNames;
+            
+            let emitName = path.basename(id).split('.');
+            emitName.pop();
 
-            var emitdata: EmittedAsset = {
+            emitAsset = {
                 type: 'asset',
-                fileName: config.fileNames.replace(/\[name\]/g, emitname.join('.')).replace(/\[extname\]/g, '.css'),
-                name: emitname.join('.'),
+                fileName: fileName.replace(/\[name\]/g, emitName.join('.')).replace(/\[extname\]/g, '.css'),
+                name: emitName.join('.'),
                 source: code
             };
         } else {
-            let emitname = basename(id).split('.');
-            emitname[emitname.length-1] = 'css';
+            let emitName = path.basename(id).split('.');
+            emitName[emitName.length-1] = 'css';
 
-            var emitdata: EmittedAsset = {
+            emitAsset = {
                 type: 'asset',
-                name: emitname.join('.'),
+                name: emitName.join('.'),
                 source: code
             };
         }
 
         // Handle Styles
         if (!config.bundle) {
-            this.emitFile(emitdata);
+            this.emitFile(emitAsset);
         } else {
             if (typeof chunks.reference === 'undefined') {
-                emitdata.source = '@bundle';
-                chunks.reference = this.emitFile(emitdata);
+                emitAsset.source = '@bundle';
+                chunks.reference = this.emitFile(emitAsset);
             }
             chunks[chunks.length++] = code;
         }

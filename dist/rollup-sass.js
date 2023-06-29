@@ -203,35 +203,36 @@ function build(config = {}) {
             let files = (Array.isArray(config.watch) ? config.watch : [config.watch]);
             files.forEach((file) => this.addWatchFile(file));
         }
+        let emitAsset;
         if (typeof config.fileNames !== 'undefined') {
-            if (typeof config.fileNames === 'function') {
-                config.fileNames = config.fileNames(path.basename(id), id);
-            }
-            let emitname = path.basename(id).split('.');
-            emitname.pop();
-            var emitdata = {
+            let fileName = typeof config.fileNames === 'function' ?
+                config.fileNames(path.basename(id), id) :
+                config.fileNames;
+            let emitName = path.basename(id).split('.');
+            emitName.pop();
+            emitAsset = {
                 type: 'asset',
-                fileName: config.fileNames.replace(/\[name\]/g, emitname.join('.')).replace(/\[extname\]/g, '.css'),
-                name: emitname.join('.'),
+                fileName: fileName.replace(/\[name\]/g, emitName.join('.')).replace(/\[extname\]/g, '.css'),
+                name: emitName.join('.'),
                 source: code
             };
         }
         else {
-            let emitname = path.basename(id).split('.');
-            emitname[emitname.length - 1] = 'css';
-            var emitdata = {
+            let emitName = path.basename(id).split('.');
+            emitName[emitName.length - 1] = 'css';
+            emitAsset = {
                 type: 'asset',
-                name: emitname.join('.'),
+                name: emitName.join('.'),
                 source: code
             };
         }
         if (!config.bundle) {
-            this.emitFile(emitdata);
+            this.emitFile(emitAsset);
         }
         else {
             if (typeof chunks.reference === 'undefined') {
-                emitdata.source = '@bundle';
-                chunks.reference = this.emitFile(emitdata);
+                emitAsset.source = '@bundle';
+                chunks.reference = this.emitFile(emitAsset);
             }
             chunks[chunks.length++] = code;
         }

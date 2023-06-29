@@ -108,7 +108,7 @@ function output(config: RatSassOutputConfig = { }) {
                 continue;
             }
 
-            // Get bundlded File
+            // Get bundled File
             let file = bundle[name] as OutputAsset;
             if (file.source === '@bundle' && instance !== null) {
                 file.source = instance._getBundle();
