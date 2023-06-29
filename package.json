@@ -38,7 +38,6 @@
         "watch": "rollup -c --watch",
         "prepare": "rollup -c"
     },
-    "type": "module",
     "main": "dist/rollup-sass.js",
     "module": "dist/rollup-sass.mjs",
     "exports": {

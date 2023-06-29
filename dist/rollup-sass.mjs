@@ -1,4 +1,4 @@
-import path, { basename } from 'path';
+import path from 'path';
 import { createFilter } from '@rollup/pluginutils';
 
 const sass = require('sass');
@@ -97,7 +97,7 @@ function output(config = {}) {
                 }
             }
             var data = compile(file.source, {
-                outFile: basename(file.fileName)
+                outFile: path.basename(file.fileName)
             });
             if ('error' in data) {
                 this.error(data.error, data.position);
