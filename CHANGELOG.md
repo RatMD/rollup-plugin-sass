@@ -1,5 +1,12 @@
-Changelog
-=========
+rat.sass - Changelog
+====================
+
+Version 0.4.0
+-------------
+-   Update: Change rollup requirements from v2 to v3.
+-   Update: Add base stylesheet directories to watch pipe, when not passed as config.
+-   Bugfix: Overwrite of `config.fileNames` when passed as a function.
+-   Remove: zora, our own zora reporter, and all test cases.
 
 Version 0.3.3
 -------------

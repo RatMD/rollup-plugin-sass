@@ -1,5 +1,5 @@
 
-import { basename } from 'path';
+import path from 'path';
 import { InputOptions, OutputAsset, OutputBundle, OutputOptions } from 'rollup';
 import { 
     RatSassOutputConfig,
@@ -136,7 +136,7 @@ function output(config: RatSassOutputConfig = { }) {
 
             // Compile SASS
             var data = compile(file.source as string, {
-                outFile: basename(file.fileName)
+                outFile: path.basename(file.fileName)
             });
             if ('error' in data) {
                 this.error(data.error, data.position);

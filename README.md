@@ -1,5 +1,5 @@
-@RAT - SASS Rollup Plugin
-=========================
+rat.sass - Rollup Plugin extensions
+===================================
 A SASS / SCSS Compiler and Bundler Plugin for [rollup](https://rollupjs.org), especially designed 
 for our own rat and tail products and packages. It supports source maps, relative source map source 
 URLs, separate stylesheets for middleware developers and many more neat features.

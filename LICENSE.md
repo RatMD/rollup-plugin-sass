@@ -1,5 +1,6 @@
 MIT License
 
+Copyright (c) 2021 - 2023 rat.md <info@rat.md>
 Copyright (c) 2020 - 2021 pytesNET <info@pytes.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
