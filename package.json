@@ -23,6 +23,9 @@
         "type": "git",
         "url": "git+ssh://git@github.com:RatMD/rollup-plugin-sass.git"
     },
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com/RatMD"
+    },
     "funding": [
         {
             "type": "buymeacoffee",
